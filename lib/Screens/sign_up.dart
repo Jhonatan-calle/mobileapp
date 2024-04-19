@@ -241,28 +241,6 @@ class SignUpScreen extends StatelessWidget {
                   )
                 ],
               ),
-              const SizedBox(height: 30),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: Column(
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 15),
-                      child: DividerRow(title: 'Or Sign Up with'),
-                    ),
-                    const SizedBox(height: 24),
-                    SecondaryButton(
-                        height: 56,
-                        textColor: AppColor.kGrayscaleDark100,
-                        width: 260,
-                        onTap: () {},
-                        borderRadius: 24,
-                        bgColor: AppColor.kBackground.withOpacity(0.3),
-                        text: 'Continue with Google',
-                        icons: ImagesPath.kGoogleIcon),
-                  ],
-                ),
-              ),
               const SizedBox(height: 23),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 40),

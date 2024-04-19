@@ -54,170 +54,153 @@ class _SignInScreenState extends State<SignInScreen> {
         elevation: 0,
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: SizedBox(
-            width: 327,
-            child: Column(children: [
-              Text(
-                'Hi, Welcome Back! 👋',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ).copyWith(color: AppColor.kGrayscaleDark100, fontSize: 24),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'We happy to see you. Sign In to your account',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.plusJakartaSans(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: AppColor.kWhite)
-                    .copyWith(color: AppColor.kGrayscale40, fontSize: 14),
-              ),
-              const SizedBox(height: 36),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Email',
-                    style: GoogleFonts.plusJakartaSans(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: AppColor.kWhite)
-                        .copyWith(
-                            color: AppColor.kGrayscaleDark100,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14),
-                  ),
-                  const SizedBox(
-                    height: 8,
-                  ),
-                  PrimaryTextFormField(
-                      borderRadius: BorderRadius.circular(24),
-                      hintText: 'abc@gmail.com',
-                      controller: emailC,
-                      width: 327,
-                      height: 52)
-                ],
-              ),
-              const SizedBox(
-                height: 16,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Password',
-                    style: GoogleFonts.plusJakartaSans(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: AppColor.kWhite)
-                        .copyWith(
-                            color: AppColor.kGrayscaleDark100,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14),
-                  ),
-                  const SizedBox(height: 8),
-                  PasswordTextField(
-                      borderRadius: BorderRadius.circular(24),
-                      hintText: 'Password',
-                      controller: passwordC,
-                      width: 327,
-                      height: 52)
-                ],
-              ),
-              const SizedBox(height: 16),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  PrimaryTextButton(
-                    onPressed: () {},
-                    title: 'Forgot Password?',
-                    textStyle: const TextStyle(),
-                  )
-                ],
-              ),
-              const SizedBox(height: 32),
-              Column(
-                children: [
-                  PrimaryButton(
-                    elevation: 0,
-                    onTap: () async {
-                      await _signInWithEmailAndPassword(); // Wait for authentication process to complete
-                      // Navigate to home screen only if authentication is successful
-                      if (_auth.currentUser != null) {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => Home()));
-                      }
-                    },
-                    text: 'LogIn',
-                    bgColor: AppColor.bgColor,
-                    borderRadius: 20,
-                    height: 46,
-                    width: 327,
-                    textColor: AppColor.kWhite,
-                    fontSize: 14,
-                  ),
-                  const SizedBox(
-                    height: 24,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 4),
-                    child: CustomRichText(
-                      title: 'Don’t have an account?',
-                      subtitle: ' Create here',
-                      onTab: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SignUpScreen()));
-                      },
-                      subtitleTextStyle: GoogleFonts.plusJakartaSans(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: SizedBox(
+              width: 327,
+              child: Column(children: [
+                Text(
+                  'Hola, Bienvenid@ 👋',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ).copyWith(color: AppColor.kGrayscaleDark100, fontSize: 24),
+                ),
+                const SizedBox(height: 8),
+                Text(
+                  'Inicia sesión',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.plusJakartaSans(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.kWhite)
+                      .copyWith(color: AppColor.kGrayscale40, fontSize: 14),
+                ),
+                const SizedBox(height: 36),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Email',
+                      style: GoogleFonts.plusJakartaSans(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
                               color: AppColor.kWhite)
                           .copyWith(
-                              color: AppColor.kPrimary,
+                              color: AppColor.kGrayscaleDark100,
                               fontWeight: FontWeight.w600,
                               fontSize: 14),
                     ),
-                  )
-                ],
-              ),
-              const SizedBox(height: 32),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 45),
-                child: Column(
-                  children: [
-                    const DividerRow(title: 'Or Sign In with'),
-                    const SizedBox(height: 24),
-                    SecondaryButton(
-                        height: 56,
-                        textColor: AppColor.kGrayscaleDark100,
-                        width: 280,
-                        onTap: () {},
-                        borderRadius: 24,
-                        bgColor: AppColor.kBackground.withOpacity(0.3),
-                        text: 'Continue with Google',
-                        icons: ImagesPath.kGoogleIcon),
+                    const SizedBox(
+                      height: 8,
+                    ),
+                    PrimaryTextFormField(
+                        borderRadius: BorderRadius.circular(24),
+                        hintText: 'abc@gmail.com',
+                        controller: emailC,
+                        width: 327,
+                        height: 52)
                   ],
                 ),
-              ),
-              const SizedBox(height: 50),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                child: TermsAndPrivacyText(
-                  title1: '  By signing up you agree to our',
-                  title2: ' Terms ',
-                  title3: '  and',
-                  title4: ' Conditions of Use',
+                const SizedBox(
+                  height: 16,
                 ),
-              ),
-              const SizedBox(height: 24),
-            ]),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Contraseña',
+                      style: GoogleFonts.plusJakartaSans(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.kWhite)
+                          .copyWith(
+                              color: AppColor.kGrayscaleDark100,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14),
+                    ),
+                    const SizedBox(height: 8),
+                    PasswordTextField(
+                        borderRadius: BorderRadius.circular(24),
+                        hintText: 'Contraseña',
+                        controller: passwordC,
+                        width: 327,
+                        height: 52)
+                  ],
+                ),
+                const SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    PrimaryTextButton(
+                      onPressed: () {},
+                      title: '¿Olvidaste tu contraseña?',
+                      textStyle: const TextStyle(),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 32),
+                Column(
+                  children: [
+                    PrimaryButton(
+                      elevation: 0,
+                      onTap: () async {
+                        await _signInWithEmailAndPassword(); // Wait for authentication process to complete
+                        // Navigate to home screen only if authentication is successful
+                        if (_auth.currentUser != null) {
+                          Navigator.pushReplacement(context,
+                              MaterialPageRoute(builder: (context) => Home()));
+                        }
+                      },
+                      text: 'Iniciar sesión',
+                      bgColor: AppColor.bgColor,
+                      borderRadius: 20,
+                      height: 46,
+                      width: 327,
+                      textColor: AppColor.kWhite,
+                      fontSize: 14,
+                    ),
+                    const SizedBox(
+                      height: 24,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 4),
+                      child: CustomRichText(
+                        title: '¿No tienes una cuenta?',
+                        subtitle: ' Crea una',
+                        onTab: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignUpScreen()));
+                        },
+                        subtitleTextStyle: GoogleFonts.plusJakartaSans(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w500,
+                                color: AppColor.kWhite)
+                            .copyWith(
+                                color: AppColor.kPrimary,
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14),
+                      ),
+                    )
+                  ],
+                ),
+                const SizedBox(height: 50),
+                const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 40),
+                  child: TermsAndPrivacyText(
+                    title1: '  Iniciando sesión estás aceptando nuestros',
+                    title2: ' Terminos',
+                    title3: '  y ',
+                    title4: ' Condiciones de Uso',
+                  ),
+                ),
+                const SizedBox(height: 24),
+              ]),
+            ),
           ),
         ),
       ),
@@ -225,9 +208,7 @@ class _SignInScreenState extends State<SignInScreen> {
   }
 }
 
-class ImagesPath {
-  static String kGoogleIcon = 'assets/googleSymbol.png';
-}
+
 
 class TermsAndPrivacyText extends StatelessWidget {
   const TermsAndPrivacyText(
