@@ -27,231 +27,210 @@ class SignUpScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: SizedBox(
-            width: 327,
-            child: Column(children: [
-              Text(
-                'Create Account',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.plusJakartaSans(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ).copyWith(
-                    color: AppColor.kGrayscaleDark100,
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 24),
+            child: SizedBox(
+              width: 327,
+              child: Column(children: [
+                Text(
+                  'Crea una cuenta',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.plusJakartaSans(
+                    fontSize: 20,
                     fontWeight: FontWeight.w600,
-                    fontSize: 24),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'We happy to see you. Sign Up to your account',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.plusJakartaSans(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                        color: AppColor.kWhite)
-                    .copyWith(
-                        color: AppColor.kGrayscale40,
-                        fontWeight: FontWeight.w600,
-                        fontSize: 14),
-              ),
-              const SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'First Name',
-                        style: GoogleFonts.plusJakartaSans(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: AppColor.kWhite)
-                            .copyWith(
-                                color: AppColor.kGrayscaleDark100,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14),
-                      ),
-                      const SizedBox(height: 8),
-                      PrimaryTextFormField(
-                          borderRadius: BorderRadius.circular(24),
-                          hintText: 'First',
-                          controller: firstName,
-                          width: 155,
-                          height: 52)
-                    ],
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Last Name',
-                        style: GoogleFonts.plusJakartaSans(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: AppColor.kWhite)
-                            .copyWith(
-                                color: AppColor.kGrayscaleDark100,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14),
-                      ),
-                      const SizedBox(
-                        height: 8,
-                      ),
-                      PrimaryTextFormField(
-                          borderRadius: BorderRadius.circular(24),
-                          hintText: 'Last',
-                          controller: listName,
-                          width: 155,
-                          height: 52)
-                    ],
-                  )
-                ],
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Email',
-                    style: GoogleFonts.plusJakartaSans(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: AppColor.kWhite)
-                        .copyWith(
-                            color: AppColor.kGrayscaleDark100,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14),
-                  ),
-                  const SizedBox(height: 7),
-                  PrimaryTextFormField(
-                      borderRadius: BorderRadius.circular(24),
-                      hintText: 'abc@gmail.com',
-                      controller: emailC,
-                      width: 327,
-                      height: 52)
-                ],
-              ),
-              const SizedBox(height: 15),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Password',
-                    style: GoogleFonts.plusJakartaSans(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: AppColor.kWhite)
-                        .copyWith(
-                            color: AppColor.kGrayscaleDark100,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14),
-                  ),
-                  const SizedBox(height: 8),
-                  PasswordTextField(
-                      borderRadius: BorderRadius.circular(24),
-                      hintText: 'Password',
-                      controller: passwordC,
-                      width: 327,
-                      height: 52)
-                ],
-              ),
-              const SizedBox(height: 28),
-              Column(
-                children: [
-                  PrimaryButton(
-                    elevation: 0,
-                    onTap: () async {
-                      //TODO: Sign up is done if you want you can move this code to auth
-
-                      //------From Here
-
-                      try {
-                        UserCredential userCredential =
-                            await _auth.createUserWithEmailAndPassword(
-                          email: emailC.text.trim(),
-                          password: passwordC.text.trim(),
-                        );
-
-                        print(
-                            'This is response of createUserWithEmailAndPassword() method ${userCredential.user!.uid}');
-
-                        name = '${firstName.text} ${listName.text}';
-                        print('This is the name of the user $name');
-
-                        if (userCredential.user != null) {
-                          //store user data in firestore
-                          CollectionReference users =
-                              FirebaseFirestore.instance.collection('Users');
-                          await users.doc(userCredential.user!.uid).set({
-                            'id': userCredential.user!.uid,
-                            'image': '',
-                            'name': name,
-                            'email': emailC.text.trim(),
-                          });
-                          print('User added to firestore $users');
-
+                  ).copyWith(
+                      color: AppColor.kGrayscaleDark100,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24),
+                ),
+                const SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Nombre',
+                          style: GoogleFonts.plusJakartaSans(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColor.kWhite)
+                              .copyWith(
+                                  color: AppColor.kGrayscaleDark100,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14),
+                        ),
+                        const SizedBox(height: 8),
+                        PrimaryTextFormField(
+                            borderRadius: BorderRadius.circular(24),
+                            hintText: 'Nombre',
+                            controller: firstName,
+                            width: 155,
+                            height: 52)
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Apellido/s',
+                          style: GoogleFonts.plusJakartaSans(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColor.kWhite)
+                              .copyWith(
+                                  color: AppColor.kGrayscaleDark100,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        PrimaryTextFormField(
+                            borderRadius: BorderRadius.circular(24),
+                            hintText: 'Apellido',
+                            controller: listName,
+                            width: 155,
+                            height: 52)
+                      ],
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 15,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Email',
+                      style: GoogleFonts.plusJakartaSans(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.kWhite)
+                          .copyWith(
+                              color: AppColor.kGrayscaleDark100,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14),
+                    ),
+                    const SizedBox(height: 7),
+                    PrimaryTextFormField(
+                        borderRadius: BorderRadius.circular(24),
+                        hintText: 'abc@gmail.com',
+                        controller: emailC,
+                        width: 327,
+                        height: 52)
+                  ],
+                ),
+                const SizedBox(height: 15),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Contraseña',
+                      style: GoogleFonts.plusJakartaSans(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.kWhite)
+                          .copyWith(
+                              color: AppColor.kGrayscaleDark100,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14),
+                    ),
+                    const SizedBox(height: 8),
+                    PasswordTextField(
+                        borderRadius: BorderRadius.circular(24),
+                        hintText: 'Contraseña',
+                        controller: passwordC,
+                        width: 327,
+                        height: 52)
+                  ],
+                ),
+                const SizedBox(height: 28),
+                Column(
+                  children: [
+                    PrimaryButton(
+                      elevation: 0,
+                      onTap: () async {
+                        //TODO: Sign up is done if you want you can move this code to auth
+          
+                        //------From Here
+          
+                        try {
+                          UserCredential userCredential =
+                              await _auth.createUserWithEmailAndPassword(
+                            email: emailC.text.trim(),
+                            password: passwordC.text.trim(),
+                          );
+          
+                          print(
+                              'This is response of createUserWithEmailAndPassword() method ${userCredential.user!.uid}');
+          
+                          name = '${firstName.text} ${listName.text}';
+                          print('This is the name of the user $name');
+          
+                          if (userCredential.user != null) {
+                            //store user data in firestore
+                            CollectionReference users =
+                                FirebaseFirestore.instance.collection('Users');
+                            await users.doc(userCredential.user!.uid).set({
+                              'id': userCredential.user!.uid,
+                              'image': '',
+                              'name': name,
+                              'email': emailC.text.trim(),
+                            });
+                            print('User added to firestore $users');
+          
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text('Inicio de sesión exitoso'),
+                              ),
+                            );
+                          }
+                        } catch (e) {
+                          print(e);
                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Sign Up Successful'),
+                            SnackBar(
+                              content: Text(e.toString()),
                             ),
                           );
                         }
-                      } catch (e) {
-                        print(e);
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            content: Text(e.toString()),
-                          ),
+          
+                        //
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignInScreen()),
                         );
-                      }
-
-                      //
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignInScreen()),
-                      );
-
-                      //------To Here
-                    },
-                    text: 'Create Account',
-                    bgColor: AppColor.bgColor,
-                    borderRadius: 20,
-                    height: 46,
-                    width: 327,
-                    textColor: AppColor.kWhite,
-                  ),
-                  const SizedBox(height: 20),
-                  CustomRichText(
-                    title: 'Already have an account? ',
-                    subtitle: 'Log In',
-                    onTab: () {},
-                    subtitleTextStyle: GoogleFonts.plusJakartaSans(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w500,
-                            color: AppColor.kWhite)
-                        .copyWith(
-                            color: AppColor.kGrayscaleDark100,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 14),
-                  )
-                ],
-              ),
-              const SizedBox(height: 23),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 40),
-                child: TermsAndPrivacyText(
-                  title1: '  By signing up you agree to our',
-                  title2: ' Terms ',
-                  title3: '  and',
-                  title4: ' Conditions of Use',
+          
+                        //------To Here
+                      },
+                      text: 'Create Account',
+                      bgColor: AppColor.bgColor,
+                      borderRadius: 20,
+                      height: 46,
+                      width: 327,
+                      textColor: AppColor.kWhite,
+                    ),
+                    const SizedBox(height: 20),
+                    CustomRichText(
+                      title: '¿Ya tienes una cuenta? ',
+                      subtitle: 'Inicia sesión',
+                      onTab: () {},
+                      subtitleTextStyle: GoogleFonts.plusJakartaSans(
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500,
+                              color: AppColor.kWhite)
+                          .copyWith(
+                              color: AppColor.kGrayscaleDark100,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14),
+                    )
+                  ],
                 ),
-              ),
-            ]),
+              ]),
+            ),
           ),
         ),
       ),
@@ -761,7 +740,7 @@ class PrimaryTextFormField extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                   color: AppColor.kWhite)
               .copyWith(
-                  color: AppColor.kGrayscaleDark100,
+                  color: AppColor.kGrayscale40,
                   fontWeight: FontWeight.w600,
                   fontSize: 14),
           prefixIcon: prefixIcon,
