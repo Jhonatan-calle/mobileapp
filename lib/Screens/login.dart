@@ -22,7 +22,7 @@ class _SignInScreenState extends State<SignInScreen> {
   Future<void> _signInWithEmailAndPassword() async {
     try {
       print(
-          "Attempting to sign in with email: ${emailC.text.trim()}"); // Debug log
+          "Attempting to sign in with email: ${emailC.text.trim()}, password : ${passwordC.text.trim()}"); // Debug log
       final UserCredential userCredential =
           await _auth.signInWithEmailAndPassword(
         email: emailC.text.trim(),
@@ -36,7 +36,7 @@ class _SignInScreenState extends State<SignInScreen> {
         ),
       );
     } catch (e) {
-      print("Failed to sign in: $e"); // Debug log
+      print("Failed to sign in: ${e}"); // Debug log
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Failed to sign in with email and password: $e'),

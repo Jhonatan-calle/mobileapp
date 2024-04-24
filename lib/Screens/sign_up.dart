@@ -185,7 +185,7 @@ class SignUpScreen extends StatelessWidget {
           
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
-                                content: Text('Inicio de sesión exitoso'),
+                                content: Text('Cuenta creada exitosamente'),
                               ),
                             );
                           }

@@ -54,11 +54,12 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBw64nxQkrxhixG7XiAR_53ueZnEHSwrcM',
-    appId: '1:330127101174:android:9a29f43ebb6c7289ae70d7',
-    messagingSenderId: '330127101174',
-    projectId: 'healwiz-da28a',
-    storageBucket: 'healwiz-da28a.appspot.com',
+    apiKey: 'AIzaSyC48Nsv3-NnwAhTcppRYV54mQJ2qulZKTk',
+    appId: '1:373648071484:android:eb4e3ea050c7ee7f4d5c39',
+    messagingSenderId: '373648071484',
+    projectId: 'test-87fde',
+    databaseURL: 'https://test-87fde-default-rtdb.firebaseio.com',
+    storageBucket: 'test-87fde.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(

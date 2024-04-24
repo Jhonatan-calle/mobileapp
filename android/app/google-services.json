@@ -1,13 +1,14 @@
 {
   "project_info": {
-    "project_number": "330127101174",
-    "project_id": "healwiz-da28a",
-    "storage_bucket": "healwiz-da28a.appspot.com"
+    "project_number": "373648071484",
+    "firebase_url": "https://test-87fde-default-rtdb.firebaseio.com",
+    "project_id": "test-87fde",
+    "storage_bucket": "test-87fde.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:330127101174:android:9a29f43ebb6c7289ae70d7",
+        "mobilesdk_app_id": "1:373648071484:android:eb4e3ea050c7ee7f4d5c39",
         "android_client_info": {
           "package_name": "com.example.healwiz"
         }
@@ -15,7 +16,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBw64nxQkrxhixG7XiAR_53ueZnEHSwrcM"
+          "current_key": "AIzaSyC48Nsv3-NnwAhTcppRYV54mQJ2qulZKTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373648071484:android:c8a596974bdc3a0c4d5c39",
+        "android_client_info": {
+          "package_name": "my.app2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC48Nsv3-NnwAhTcppRYV54mQJ2qulZKTk"
         }
       ],
       "services": {
