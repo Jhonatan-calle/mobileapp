@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healwiz/Screens/profile.dart';
+import 'package:healwiz/Screens/cuentas.dart';
 
 import 'home_screen.dart';
 
@@ -13,6 +14,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   List pages = [
     const HomeScreen(),
+    const CuentasScreen(),
     const ProfileScreen(),
   ];
 
@@ -43,9 +45,14 @@ class _HomeState extends State<Home> {
                 label: ("Home"),
                 icon: Icon(Icons.home)),
             BottomNavigationBarItem(
+                // backgroundColor: Colors.deepPurple,
+                label: ("contabilidad"),
+                icon: Icon(Icons.analytics)),
+            BottomNavigationBarItem(
                 // backgroundColor: Color(0xFF4B72F7),
                 label: ("Profile"),
                 icon: Icon(Icons.person_rounded)),
+            
           ],
         ),
         body: pages[cIndex]);

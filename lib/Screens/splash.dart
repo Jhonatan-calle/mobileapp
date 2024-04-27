@@ -25,21 +25,24 @@ class _SplashState extends State<Splash> {
     Timer(
       const Duration(seconds: 5),
       () {
-        // Check if the user is logged in
-        bool isLoggedIn = checkIfUserIsLoggedIn();
+        // Check if the widget is still mounted
+        if (mounted) {
+          // Check if the user is logged in
+          bool isLoggedIn = checkIfUserIsLoggedIn();
 
-        if (isLoggedIn) {
-          // If the user is logged in, navigate to the home screen
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => const Home()),
-          );
-        } else {
-          // If the user is not logged in, navigate to the sign in screen
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) => SignInScreen()),
-          );
+          if (isLoggedIn) {
+            // If the user is logged in, navigate to the home screen
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => const Home()),
+            );
+          } else {
+            // If the user is not logged in, navigate to the sign in screen
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (context) => SignInScreen()),
+            );
+          }
         }
       },
     );

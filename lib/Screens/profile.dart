@@ -56,7 +56,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
-        title: Text(
+        title: const Text(
           'Profile',
           style: TextStyle(
               fontWeight: FontWeight.bold, fontSize: 28, color: Colors.white),
