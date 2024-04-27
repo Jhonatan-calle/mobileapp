@@ -174,7 +174,7 @@ class SignUpScreen extends StatelessWidget {
                           if (userCredential.user != null) {
                             //store user data in firestore
                             CollectionReference users =
-                                FirebaseFirestore.instance.collection('Users');
+                                FirebaseFirestore.instance.collection('users');
                             await users.doc(userCredential.user!.uid).set({
                               'id': userCredential.user!.uid,
                               'image': '',

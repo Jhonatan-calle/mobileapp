@@ -17,13 +17,13 @@ class _SplashState extends State<Splash> {
     final user = FirebaseAuth.instance.currentUser;
     return user != null;
   }
-
-  void initState() {
-    super.initState();
-
+  
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
     // Wait for 5 seconds and then navigate to the next screen
     Timer(
-      const Duration(seconds: 2),
+      const Duration(seconds: 5),
       () {
         // Check if the user is logged in
         bool isLoggedIn = checkIfUserIsLoggedIn();
@@ -32,7 +32,7 @@ class _SplashState extends State<Splash> {
           // If the user is logged in, navigate to the home screen
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => Home()),
+            MaterialPageRoute(builder: (context) => const Home()),
           );
         } else {
           // If the user is not logged in, navigate to the sign in screen

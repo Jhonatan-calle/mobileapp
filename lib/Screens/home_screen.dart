@@ -68,8 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.deepPurple,
-        title: Text(
-          _userName.isNotEmpty ? 'Hello, $_userName!' : 'Hello!',
+        title: Text("listado de Clientes",
           style: GoogleFonts.plusJakartaSans(
             color: Colors.white,
             fontSize: 27,
