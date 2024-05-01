@@ -12,8 +12,6 @@ class FormClient extends StatefulWidget {
 class _FormClientSate extends State<FormClient> {
   final _formKey = GlobalKey<FormState>();
 
-  
-
   String _name = '';
   String _contacto = '';
   String _notas = '';
@@ -72,8 +70,20 @@ class _FormClientSate extends State<FormClient> {
                     _formKey.currentState!.save();
                     // Aquí puedes enviar los datos a donde los necesites
                     // Por ejemplo, puedes imprimirlos en la consola
-                    db.collection('users').doc(user.uid).collection('clientes').add({})
+                    db
+                        .collection('users')
+                        .doc(user.uid)
+                        .collection('clientes')
+                        .add({
+                      "nombre": _name.trim(),
+                      "direccion": _direccion.trim(),
+                      "contacto": _contacto.trim(),
+                      "orderIndex": 0,
+                      "descripcion": _notas.trim()
+                    }).then((documentSnapshot) => print(
+                            "Added Data with ID: ${documentSnapshot.id}"));
                   }
+                  Navigator.pop(context);
                 },
                 child: Text('Enviar'),
               ),
