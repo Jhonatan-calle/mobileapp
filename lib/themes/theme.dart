@@ -12,3 +12,33 @@ class AppColor {
   static Color bgColor1 = const Color(0xFF6961B6);
   static Color button = const Color(0xFF2A6CD9);
 }
+
+final lightColorScheme = ColorScheme.light(
+  primary: Colors.deepPurple,
+  primaryContainer: Colors.deepPurpleAccent,
+  secondary: Colors.amber,
+  secondaryContainer: Colors.amberAccent,
+  surface: Colors.white,
+  background: Colors.grey[200]!,
+  error: Colors.red,
+  onPrimary: Colors.white,
+  onSecondary: Colors.black,
+  onSurface: Colors.black,
+  onBackground: Colors.black,
+  onError: Colors.white,
+);
+
+final darkColorScheme = ColorScheme.dark(
+  primary: Colors.deepPurple,
+  primaryContainer: Colors.deepPurpleAccent,
+  secondary: Colors.amber,
+  secondaryContainer: Colors.amberAccent,
+  surface: Colors.grey[850]!,
+  background: Colors.black,
+  error: Colors.redAccent,
+  onPrimary: Colors.black,
+  onSecondary: Colors.black,
+  onSurface: Colors.white,
+  onBackground: Colors.white,
+  onError: Colors.black,
+);

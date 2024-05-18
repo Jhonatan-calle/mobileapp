@@ -30,15 +30,14 @@ class _HomeState extends State<Home> {
     return Scaffold(
         bottomNavigationBar: BottomNavigationBar(
           onTap: onTap,
-          backgroundColor: Colors.deepPurple,
           currentIndex: cIndex,
           selectedFontSize: 0,
           unselectedFontSize: 0,
-          selectedItemColor: Colors.white,
+          selectedItemColor: Colors.black,
           unselectedItemColor: Colors.grey.withOpacity(0.8),
           showSelectedLabels: false,
           showUnselectedLabels: false,
-          elevation: 0,
+          elevation: 5,
           items: const [
             BottomNavigationBarItem(
                 // backgroundColor: Colors.deepPurple,
@@ -52,7 +51,6 @@ class _HomeState extends State<Home> {
                 // backgroundColor: Color(0xFF4B72F7),
                 label: ("Profile"),
                 icon: Icon(Icons.person_rounded)),
-            
           ],
         ),
         body: pages[cIndex]);

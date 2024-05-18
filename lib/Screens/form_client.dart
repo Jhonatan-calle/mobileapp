@@ -20,7 +20,6 @@ class _FormClientSate extends State<FormClient> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
         title: const Text('Nuevo cliente'),
       ),
       body: Padding(
@@ -75,17 +74,17 @@ class _FormClientSate extends State<FormClient> {
                         .doc(user.uid)
                         .collection('clientes')
                         .add({
-                      "nombre": _name.trim(),
-                      "direccion": _direccion.trim(),
-                      "contacto": _contacto.trim(),
+                      "nombre": _name.trim().toLowerCase(),
+                      "direccion": _direccion.trim().toLowerCase(),
+                      "contacto": _contacto.trim().toLowerCase(),
                       "orderIndex": 0,
-                      "descripcion": _notas.trim()
+                      "descripcion": _notas.trim().toLowerCase()
                     }).then((documentSnapshot) => print(
                             "Added Data with ID: ${documentSnapshot.id}"));
                   }
                   Navigator.pop(context);
                 },
-                child: Text('Enviar'),
+                child: const Text('crear nuevo cliente'),
               ),
             ],
           ),

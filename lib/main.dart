@@ -17,7 +17,7 @@ Future<void> main() async {
   db.settings = const Settings(
     persistenceEnabled: true,
     cacheSizeBytes: Settings.CACHE_SIZE_UNLIMITED,
-    );
+  );
   runApp(const MyApp());
 }
 
@@ -30,10 +30,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Mi cobro',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {

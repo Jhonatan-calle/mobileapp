@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:healwiz/Screens/form_client.dart';
+
+import 'form_client.dart'; // Asegúrate de importar tu pantalla FormClient
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -23,12 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Future<void> _loadUserData() async {
-    // Get the current user from Firebase Authentication
     User? user = FirebaseAuth.instance.currentUser;
 
     if (user != null) {
       try {
-        // Get the user document from Firestore
         DocumentReference userRef =
             FirebaseFirestore.instance.collection('users').doc(user.uid);
         QuerySnapshot clientesQuery =
@@ -36,7 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
         List<DocumentSnapshot> documentos = clientesQuery.docs;
         List<Cliente> documentosClientes = documentos.map((doc) {
-          // Aquí conviertes cada documento en un objeto Cliente
           var data = doc.data(); // Obtén los datos del documento
           return Cliente(
             nombre: (data as Map<String, dynamic>)['nombre'] ?? '',
@@ -46,9 +44,8 @@ class _HomeScreenState extends State<HomeScreen> {
             ordenIndex: (data)['ordenIndex'] ?? 0,
           );
         }).toList();
-        // Check if the widget is still mounted before updating the state
+
         if (mounted) {
-          // Get the user's name field from the document
           setState(() {
             listaClientes = documentosClientes;
             listaFiltrada = documentosClientes;
@@ -74,7 +71,6 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Column(
         children: [
-          // Cuadro de busqueda
           Padding(
             padding: const EdgeInsets.all(12),
             child: Container(
@@ -88,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   IconButton(
                     onPressed: () {
-                      // ...busqueda cliente por nombre o dni
+                      // Puedes realizar una búsqueda adicional aquí si lo deseas
                     },
                     icon: const Icon(
                       Icons.search,
@@ -97,8 +93,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   Expanded(
                     child: TextField(
-                      controller: textController, //aqui
-                      decoration: InputDecoration(
+                      controller: textController,
+                      decoration: const InputDecoration(
                         hintText: 'Escriba aquí...',
                         border: InputBorder.none,
                       ),
@@ -121,7 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-          //lista de clientes
           Expanded(
             child: ListView.builder(
               padding: const EdgeInsets.all(8),
@@ -136,7 +131,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     style: const TextStyle(
                       fontSize: 18, // Tamaño de fuente
                       fontWeight: FontWeight.bold, // Peso de la fuente
-                      // Otros estilos que desees aplicar
                     ),
                   )),
                 );
